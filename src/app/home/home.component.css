@@ -1,0 +1,22 @@
+#d1 {
+    width: auto;
+    height: 10vh;
+    background-color: #D9D9D6;
+    margin-left: 20vw
+}
+
+#d2 {
+    width: 20vw;
+    height: 100vh;
+    background-color: #1F378C;
+    margin-top: -10vh;
+    margin-right: 1vw;
+}
+
+#d3 {
+    width: auto;
+    height: auto;
+    background-color: white;
+    margin-left: 20vw;
+    margin-top: -89vh;
+}

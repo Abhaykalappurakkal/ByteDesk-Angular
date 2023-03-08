@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4"></div>
+
+    <div id="login" class="col-4">
+      <form [formGroup]="loginForm" action="">
+        <img id="d14" src="../../assets/MicrosoftTeams-image.png" alt="" />
+
+        <div id="d11">
+          <label for="" style="color: white"
+            >username<span style="color: red">*</span></label
+          >
+
+          <input type="text" formControlName="userName" class="form-control" />
+          <br />
+
+          <div
+            *ngIf="
+              loginForm.get('userName')?.touched &&
+              this.loginForm.get('userName')?.errors
+            "
+          >
+            <span style="color: red">Please enter userid</span>
+          </div>
+        </div>
+
+        <div id="d12">
+          <label for="" style="color: white"
+            >password<span style="color: red">*</span></label
+          >
+
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+          />
+
+          <div
+            *ngIf="
+              loginForm.get('password')?.touched &&
+              this.loginForm.get('password')?.errors
+            "
+          >
+            <span style="color: red">Please enter password</span>
+          </div>
+        </div>
+
+        <div id="d13">
+          <button id="btn" class="btn btn-success" (click)="login()">
+            Login
+          </button>
+        </div>
+
+        <div id="l1">
+          <p id="para">
+            Copyright &copy; 2022 Bytestrone <br />
+            <span id="s1"> All rights reserved </span>
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-4"></div>
+  </div>
+</div>

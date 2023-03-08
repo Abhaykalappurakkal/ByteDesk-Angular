@@ -1,0 +1,259 @@
+<div class="status">
+  <!-- Open -->
+  <div class="table-responsive" *ngIf="request && open">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">REQUEST ID</th>
+          <th scope="col">REQUESTED DATE</th>
+          <th scope="col">DEPARTMENT</th>
+          <th scope="col">TICKET SUMMARY</th>
+          <th scope="col">CANCEL</th>
+          <th scope="col">VIEW</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- to paginate the items -->
+        <tr
+          *ngFor="
+            let item of request
+              | paginate
+                : {
+                    itemsPerPage: 5,
+                    currentPage: currentPage,
+                    totalItems: count
+                  }
+          "
+        >
+          <td>{{ item.requestId }}</td>
+          <td>{{ item.requestDate | date }}</td>
+          <td>{{ item.requestedDepartment }}</td>
+          <td>{{ item.ticketSummary }}</td>
+          <td>
+            <!-- to cancel an open request -->
+            <button
+              class="btn btn-warning"
+              (click)="openToCancel(item.requestId, item)"
+            >
+              Cancel
+            </button>
+          </td>
+          <!-- to view complete details of the request -->
+          <td>
+            <button class="btn btn-info" (click)="view('status', item)">
+              View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <!-- pagination controls -->
+      <pagination-controls
+        previousLabel="Previous"
+        nextLabel="Next"
+        (pageChange)="onTableRequestDataChange($event)"
+      ></pagination-controls>
+    </div>
+  </div>
+  <!-- Cancelled -->
+  <div class="table-responsive" *ngIf="request && cancelled">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">REQUEST ID</th>
+          <th scope="col">REQUESTED DATE</th>
+          <th scope="col">DEPARTMENT</th>
+          <th scope="col">TICKET SUMMARY</th>
+          <th scope="col">VIEW</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let item of request
+              | paginate
+                : {
+                    itemsPerPage: 5,
+                    currentPage: currentPage,
+                    totalItems: count
+                  }
+          "
+        >
+          <td>{{ item.requestId }}</td>
+          <td>{{ item.requestDate | date }}</td>
+          <td>{{ item.requestedDepartment }}</td>
+          <td>{{ item.ticketSummary }}</td>
+          <td>
+            <button class="btn btn-info" (click)="view('status', item)">
+              View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <pagination-controls
+        previousLabel="Previous"
+        nextLabel="Next"
+        (pageChange)="onTableRequestDataChange($event)"
+      ></pagination-controls>
+    </div>
+  </div>
+  <!-- Reassigned -->
+  <div class="table-responsive" *ngIf="request && reassigned">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">REQUEST ID</th>
+          <th scope="col">REQUESTED DATE</th>
+          <th scope="col">DEPARTMENT</th>
+          <th scope="col">TICKET SUMMARY</th>
+          <th scope="col">RESOLVED DATE</th>
+          <th scope="col">INFO</th>
+          <th scope="col">UPDATE</th>
+          <th scope="col">VIEW</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let item of request
+              | paginate
+                : {
+                    itemsPerPage: 5,
+                    currentPage: currentPage,
+                    totalItems: count
+                  }
+          "
+        >
+          <td>{{ item.requestId }}</td>
+          <td>{{ item.requestDate | date }}</td>
+          <td>{{ item.requestedDepartment }}</td>
+          <td>{{ item.ticketSummary }}</td>
+          <td>{{ item.resolvedDate }}</td>
+          <td>{{ item.resolution }}</td>
+          <td><button class="btn btn-success">Update</button></td>
+          <td>
+            <button class="btn btn-info" (click)="view('status', item)">
+              View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <pagination-controls
+        previousLabel="Previous"
+        nextLabel="Next"
+        (pageChange)="onTableRequestDataChange($event)"
+      ></pagination-controls>
+    </div>
+  </div>
+  <!-- RESOLVED -->
+  <div class="table-responsive" *ngIf="request && resolved">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">REQUEST ID</th>
+          <th scope="col">REQUESTED DATE</th>
+          <th scope="col">DEPARTMENT</th>
+          <th scope="col">TICKET SUMMARY</th>
+          <th scope="col">RESOLVED DATE</th>
+          <th scope="col">INFO</th>
+          <th scope="col">CLOSE</th>
+          <th scope="col">VIEW</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let item of request
+              | paginate
+                : {
+                    itemsPerPage: 5,
+                    currentPage: currentPage,
+                    totalItems: count
+                  }
+          "
+        >
+          <td>{{ item.requestId }}</td>
+          <td>{{ item.requestDate | date }}</td>
+          <td>{{ item.requestedDepartment }}</td>
+          <td>{{ item.ticketSummary }}</td>
+          <td>{{ item.resolvedDate }}</td>
+          <td>{{ item.resolution }}</td>
+          <td>
+            <button
+              class="btn btn-warning"
+              (click)="resolvedToClosed(item.requestId, item)"
+            >
+              Close
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-info" (click)="view('status', item)">
+              View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <pagination-controls
+        previousLabel="Previous"
+        nextLabel="Next"
+        (pageChange)="onTableRequestDataChange($event)"
+      ></pagination-controls>
+    </div>
+  </div>
+  <!-- Closed -->
+  <div class="table-responsive" *ngIf="request && closed">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">REQUEST ID</th>
+          <th scope="col">REQUESTED DATE</th>
+          <th scope="col">DEPARTMENT</th>
+          <th scope="col">TICKET SUMMARY</th>
+          <th scope="col">RESOLVED DATE</th>
+          <th scope="col">INFO</th>
+          <th scope="col">VIEW</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let item of request
+              | paginate
+                : {
+                    itemsPerPage: 5,
+                    currentPage: currentPage,
+                    totalItems: count
+                  }
+          "
+        >
+          <td>{{ item.requestId }}</td>
+          <td>{{ item.requestDate | date }}</td>
+          <td>{{ item.requestedDepartment }}</td>
+          <td>{{ item.ticketSummary }}</td>
+          <td>{{ item.resolvedDate }}</td>
+          <td>{{ item.resolution }}</td>
+          <td>
+            <button class="btn btn-info" (click)="view('status', item)">
+              View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <pagination-controls
+        previousLabel="Previous"
+        nextLabel="Next"
+        (pageChange)="onTableRequestDataChange($event)"
+      ></pagination-controls>
+    </div>
+  </div>
+  <button id="back" class="btn btn-warning" routerLink="/home">Back</button>
+</div>

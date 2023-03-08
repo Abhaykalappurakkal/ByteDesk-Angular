@@ -1,0 +1,118 @@
+@media (min-width:1100px) {
+
+    .card {
+        width: 12vw;
+        height: auto;
+        display: flex;
+    }
+
+    .content-statuscount {
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .content-head {
+        margin-left: 2vw;
+        margin-top: 2vh;
+    }
+
+    #hr {
+        margin-left: 1vw;
+        margin-right: 1vw;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        color: #1f1c86;
+        height: .5vh;
+    }
+
+    .content-status {
+        margin-top: 3vh;
+        margin-left: 1vw;
+    }
+
+    .content-dept {
+        margin-top: 3vh;
+        margin-left: 1vw;
+    }
+
+    .content-deptcount {
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    #image {
+        width: 2vw;
+        height: 5vh;
+    }
+
+    #btn {
+        border: 2px solid #1F378C;
+    }
+
+}
+
+@media (max-width:1100px) {
+    .card {
+        width: 12vw;
+        height: auto;
+        display: flex;
+    }
+
+    .content-statuscount {
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        margin-right: 1vw;
+    }
+
+    .content-head {
+        margin-left: 5vw;
+        margin-top: 2vh;
+    }
+
+    #hr {
+        margin-left: 1vw;
+        margin-right: 1vw;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        color: #CD1D5B;
+        height: .5vh;
+    }
+
+    .content-status {
+        margin-top: 3vh;
+        margin-left: 1vw;
+        margin-right: 1vw;
+    }
+
+    .content-dept {
+        margin-top: 3vh;
+        margin-left: 1vw;
+    }
+
+    .content-deptcount {
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    #image {
+        width: 3vw;
+        height: 5vh;
+    }
+
+    #hidden {
+        display: none;
+    }
+
+    #btn {
+        border: 2px solid #1F378C;
+    }
+
+}

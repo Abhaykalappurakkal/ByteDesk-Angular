@@ -1,0 +1,60 @@
+<div class="view">
+  <div class="view-details">
+    <div class="header">
+      <div><h3>Details of the Requests</h3></div>
+    </div>
+    <div class="exit">
+      <button class="btn btn-danger" (click)="route()">Back</button>
+    </div>
+  </div>
+  <div class="view-data">
+    <div class="data">
+      <div><h5>Request Id</h5></div>
+      <div class="card">
+        <span id="v1">{{ ticketDetails.requestId }}</span>
+      </div>
+    </div>
+    <div class="data">
+      <div><h5>Requested Date</h5></div>
+      <div class="card">
+        <span id="v1">{{ ticketDetails.requestDate | date }}</span>
+      </div>
+    </div>
+    <div class="data">
+      <div><h5>Department</h5></div>
+      <div class="card">
+        <span id="v1">{{ ticketDetails.requestedDepartment }}</span>
+      </div>
+    </div>
+    <div class="data">
+      <div><h5>Ticket Summary</h5></div>
+      <div class="card">
+        <span id="v1">{{ ticketDetails.ticketSummary }}</span>
+      </div>
+    </div>
+    <div class="data">
+      <div><h5>Ticket Description</h5></div>
+      <div class="card">
+        <span id="v1">{{ ticketDetails.ticketDescription }}</span>
+      </div>
+    </div>
+    <div class="data">
+      <div><h5>Ticket Status</h5></div>
+      <div class="card">
+        <span id="v1">{{ ticketDetails.ticketStatus }}</span>
+      </div>
+    </div>
+    <div class="data">
+      <div><h5>Resolved Date</h5></div>
+      <div class="card">
+        <span id="v1">{{ ticketDetails.resolvedDate }}</span>
+      </div>
+    </div>
+    <div class="data">
+      <div><h5>Info</h5></div>
+      <div class="card">
+        <span id="v1">{{ ticketDetails.resolution }}</span>
+      </div>
+    </div>
+  </div>
+</div>

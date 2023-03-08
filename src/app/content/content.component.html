@@ -1,0 +1,64 @@
+<div class="content-head">
+  <h3>Request Dashboard</h3>
+</div>
+<hr id="hr" />
+<div class="content-status">
+  <div class="content-statushead">
+    <h5>Ticket Statuses</h5>
+    <div class="content-statuscount">
+      <div class="card">
+        <button id="btn" class="btn" (click)="requestStatus('open')">
+          <img
+            src="..//src\assets\57374074-5535c400-719a-11e9-897f-3b5e7d30382c-removebg-preview.png"
+            id="image"
+          />
+          <h5 id="hidden">Open</h5>
+        </button>
+      </div>
+      <div class="card">
+        <button id="btn" class="btn" (click)="requestStatus('cancelled')">
+          <img src="..//src\assets\download-removebg-preview.png" id="image" />
+          <h5 id="hidden">Cancelled</h5>
+        </button>
+      </div>
+      <div class="card">
+        <button id="btn" class="btn" (click)="requestStatus('reassigned')">
+          <img
+            src="..//src\assets\download__1_-removebg-preview.png"
+            id="image"
+          />
+          <h5 id="hidden">Reassigned</h5>
+        </button>
+      </div>
+      <div class="card">
+        <button id="btn" class="btn" (click)="requestStatus('resolved')">
+          <img src="..//src\assets\images-removebg-preview.png" id="image" />
+          <h5 id="hidden">Resolved</h5>
+        </button>
+      </div>
+      <div class="card">
+        <button id="btn" class="btn" (click)="requestStatus('closed')">
+          <img
+            src="..//src\assets\download__2_-removebg-preview.png"
+            id="image"
+          />
+          <h5 id="hidden">Closed</h5>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<hr id="hr" />
+<div class="content-dept">
+  <div class="content-depthead">
+    <h5>Ticket Departments</h5>
+    <div class="content-deptcount">
+      <div class="card" *ngFor="let item of departments">
+        <button id="btn" class="btn" (click)="requestDepartment(item[0])">
+          <img src="{{ item[1] }}" id="image" />
+          <h5 id="hidden">{{ item[0] }}</h5>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

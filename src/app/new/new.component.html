@@ -1,0 +1,77 @@
+<div class="new">
+  <div class="head">
+    <div>
+      <h5>
+        <p id="header">
+          {{ salutation }} {{ name }} , please fill the following details to
+          raise a new request
+        </p>
+      </h5>
+    </div>
+    <div>
+      <button class="btn" id="back" routerLink="/home">back</button>
+    </div>
+  </div>
+  <mat-vertical-stepper [linear]="false" #stepper class="stepper">
+    <ng-template matStepperIcon="edit">
+      <mat-icon>done_outline</mat-icon>
+    </ng-template>
+    <mat-step>
+      <form>
+        <div class="new-dept">
+          <h5>Department</h5>
+          <select
+            name="department"
+            id="dept-select"
+            (click)="data($event)"
+            default-value="IT"
+            completed="false"
+          >
+            <option value="IT">IT</option>
+            <option value="Finance">Finance</option>
+            <option value="HR">HR</option>
+            <option value="Learning">Learning</option>
+          </select>
+        </div>
+        <div>
+          <button mat-button matStepperNext class="btn">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <div class="ticket-summary">
+        <h5>Ticket Summary</h5>
+        <input
+          type="text"
+          id="summary-box"
+          [maxlength]="250"
+          [(ngModel)]="summary"
+          completed="false"
+        />
+      </div>
+      <div>
+        <button mat-button matStepperPrevious class="btn">Back</button>
+        <button mat-button matStepperNext class="btn">Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div class="ticket-description">
+        <h5>Ticket Description</h5>
+        <input
+          type="text"
+          id="description-box"
+          [maxlength]="1000"
+          [(ngModel)]="desc"
+          completed="false"
+        />
+      </div>
+      <div>
+        <button mat-button matStepperPrevious class="btn">Back</button>
+        <button class="btn" (click)="submit()">Submit</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+  <div>
+    <button class="btn" id="hidden" routerLink="/home">back</button>
+  </div>
+</div>

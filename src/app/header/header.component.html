@@ -1,0 +1,29 @@
+<div class="header">
+  <div class="new_request">
+    <button id="btn2" class="btn btn-primary" routerLink="/home/new">
+      <i class="fa-sharp fa-solid fa-plus"></i>
+      <b id="hidden">| new request</b>
+    </button>
+  </div>
+  <div class="search">
+    <input id="input" type="text" disabled />
+    <button id="btn" disabled>search</button>
+  </div>
+  <div class="user">
+    <div class="user-data">
+      <div id="address">
+        <b>{{ address }}</b>
+      </div>
+      <div id="user">
+        {{ salutation }} <b> {{ username }} </b>
+      </div>
+      <div id="time">{{ currentTime | date : "MMM d, y h:mm:ss a" }}</div>
+    </div>
+    <div>
+      <img
+        src="..//src\assets\png-clipart-avatar-computer-icons-logo-grapher-logo-black.png"
+        id="image"
+      />
+    </div>
+  </div>
+</div>

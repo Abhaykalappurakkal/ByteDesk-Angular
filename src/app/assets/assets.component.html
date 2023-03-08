@@ -1,0 +1,22 @@
+<!-- this is to show the asset management details which is not relevent according to the current concept -->
+
+<div class="asset">
+  <div>
+    <h3>Asset Dashboard</h3>
+  </div>
+  <hr />
+  <div class="main">
+    <div class="asset-head">
+      <h5>Asset Requests</h5>
+    </div>
+    <div class="req">
+      <div class="card" *ngFor="let item of requests">
+        <button id="btn">
+          <img src="..//src\assets\asset.png" />
+          <h6>{{ item }}</h6>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="hide"><h5>Cannot be displayed...🔐</h5></div>
+</div>

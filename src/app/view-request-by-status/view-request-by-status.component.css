@@ -1,0 +1,24 @@
+.view-details {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    margin-top: 2vh;
+}
+
+.data {
+    display: grid;
+    grid-template-columns: 2fr 6.75fr;
+    margin-top: 2vh;
+}
+
+.view {
+    margin-left: 1vw;
+}
+
+.view-data {
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+#v1 {
+    margin-left: 2vw;
+}

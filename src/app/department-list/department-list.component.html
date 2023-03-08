@@ -1,0 +1,50 @@
+<div class="dept">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">REQUEST ID</th>
+          <th scope="col">REQUESTED DATE</th>
+          <th scope="col">TICKET STATUS</th>
+          <th scope="col">TICKET SUMMARY</th>
+          <th scope="col">RESOLVED DATE</th>
+          <th scope="col">INFO</th>
+          <th scope="col">VIEW</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let item of request
+              | paginate
+                : {
+                    itemsPerPage: 5,
+                    currentPage: currentPage,
+                    totalItems: count
+                  }
+          "
+        >
+          <td>{{ item.requestId }}</td>
+          <td>{{ item.requestDate }}</td>
+          <td>{{ item.ticketStatus }}</td>
+          <td>{{ item.ticketSummary }}</td>
+          <td>{{ item.resolvedDate }}</td>
+          <td>{{ item.resolution }}</td>
+          <td>
+            <button class="btb btn-secondary" (click)="view('dept', item)">
+              View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <pagination-controls
+        previousLabel="Previous"
+        nextLabel="Next"
+        (pageChange)="onTableRequestDataChange($event)"
+      ></pagination-controls>
+    </div>
+  </div>
+  <button id="back" class="btn btn-warning" routerLink="/home">Back</button>
+</div>
